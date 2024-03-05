@@ -1,0 +1,34 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: "my-awesome-app"
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/backend
+    username: postgres
+    password: syspass
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 5MB
+  redis:
+    host: localhost
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 300000
+---
+app:
+  token:
+    private-key: return0#SecretRRR5426
+    public-key: return0
+    issuer: BackendService
+
